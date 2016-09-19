@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+function bootstrap {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  if [[ ! -d "$shome/vendor/slate/.git" ]]; then
+    git clone git@github.com:lord/slate "$shome/vendor/slate"
+  fi
+
+  cd "$shome/vendor/slate"
+  block compile bundler
+}
+
+bootstrap

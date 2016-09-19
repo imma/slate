@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+function _github_profile {
+  local shome="${_github_home:-"$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"}"
+  PATH="$shome/bin:$PATH"
+}
+
+_github_profile

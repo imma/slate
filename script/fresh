@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+function main {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  if [[ -x "$(type -P hub)" ]]; then
+    if [[ -x "$(type -P ghi)" ]]; then
+      if [[ -x "$(type -P git-flow)" ]]; then
+        return 1
+      fi
+    fi
+  fi
+
+  return 0
+}
+
+source sub "$0" "$@"
