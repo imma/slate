@@ -5,7 +5,7 @@ function main {
   source "$shome/script/profile"
 
   if [[ ! -x "$shome/vendor/slate/vendor/bundle/bin/middleman" ]]; then
-    return 0
+    return 1
   fi
 
   return 0
